@@ -34,15 +34,6 @@ namespace Teste.Controllers
             return View(pc);
         }
 
-        //public IActionResult Cadastro()
-        //{
-        //Contexto contexto = new Contexto();
-
-        //List<Paciente> cadastro = (from Paciente pc in contexto.Cadastro
-        //select pc).Include(e => e.Emails).ToList<Pessoa>();
-        //return View(cadastro);
-        //}
-
         [HttpPost]
         public IActionResult Cadastrar(Paciente pc)
         {
@@ -51,16 +42,6 @@ namespace Teste.Controllers
             contexto.Paciente.Add(pc);
             contexto.SaveChanges();
 
-
-            //int pessoaId = p.Id;
-            //List<Email> emails = (from Email e in contexto.Emails
-            // select e).Include(e => e.pessoa).Where(e => e.pessoa.Id == pessoaId).ToList<Email>();
-
-            //ViewData["Emails"] = emails;
-
-            //ViewBag.pessoaId = p.Id;
-
-            // return RedirectToAction("CadastroEmail", new { id = p.Id });
             return RedirectToAction("Index", "Home", pc.CPF);
         }
 
@@ -70,55 +51,6 @@ namespace Teste.Controllers
         {
             return View();
         }
-
-
-
-
-        //[HttpGet]
-        //public IActionResult Login (int id)
-        //{
-        //    //int pessoaId = ViewBag.CaloriaId;
-        //    Contexto contexto = new Contexto();
-        //    //    //List<Email> emails = (from Email p in contexto.Emails
-        //    //    //                      select p).Include(e => e.pessoa).Where(p => p.pessoa.Id == id).ToList<Email>();
-
-        //    ViewData["Caloria"] = caloria;
-        //    ViewData["Cpf"] = id;
-
-        //    return View();
-        //}
-
-        //public IActionResult CadastroEmail(Email email, int? id)
-        //[HttpPost]
-        //public IActionResult CadastroEmail(string emailTexto, int? id)
-        //{
-        //    Email email = new Email();
-        //    email.email = emailTexto;
-
-        //    Contexto contexto = new Contexto();
-
-        //    Pessoa? pessoa = new Pessoa();
-        //    pessoa = (from Pessoa p in contexto.Pessoas
-        //              select p).Include(e => e.Emails).Where(p => p.Id == id).FirstOrDefault<Pessoa>();
-
-        //    email.pessoa = pessoa;
-
-        //    contexto.Emails.Add(email);
-        //    contexto.SaveChanges();
-
-        //    return RedirectToAction("PessoaId", new { id = id });
-        //}
-
-        //[HttpPost]
-        //public IActionResult Cadastrar(Pessoa p)
-        //{
-        //    Contexto contexto = new Contexto();
-
-        //    contexto.Pessoas.Add(p);
-        //    contexto.SaveChanges();
-
-        //    return View("Pessoa", p);
-        //}
 
 
 
@@ -151,7 +83,7 @@ namespace Teste.Controllers
                 }
             }
 
-            // Credenciais inválidas, exibir mensagem de erro
+            
             ModelState.AddModelError(string.Empty, "Usuário não encontrado ou senha incorreta");
             return View(model);
         }
@@ -163,10 +95,7 @@ namespace Teste.Controllers
 
         private bool VerifyPassword(string hashedPassword, string providedPassword)
         {
-            // Implemente a lógica de verificação da senha aqui
-            // Você pode usar bibliotecas de hashing de senha, como BCrypt ou PBKDF2
-
-            // Exemplo simples de comparação direta de senha (não recomendado para produção)
+            
             return hashedPassword == providedPassword;
 
         }
