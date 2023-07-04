@@ -32,7 +32,7 @@ namespace Teste.Controllers
 
                             if (VerifyPassword(storedPassword, model.Password))
                             {
-                                // Autenticação bem-sucedida, redirecionar para a página principal
+                               
                                 return RedirectToAction("Paciente", "Dados");
                             }
                         }
@@ -40,7 +40,7 @@ namespace Teste.Controllers
                 }
             }
 
-            // Credenciais inválidas, exibir mensagem de erro
+        
             ModelState.AddModelError(string.Empty, "Usuário não encontrado ou senha incorreta");
             return View(model);
         }
@@ -54,7 +54,6 @@ namespace Teste.Controllers
         {
 
 
-            //Comparação direta de senha (não recomendado para produção)
             return hashedPassword == providedPassword;
 
         }
