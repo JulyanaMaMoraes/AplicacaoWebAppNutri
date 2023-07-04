@@ -1,0 +1,97 @@
+﻿@using Teste.Models
+@model Teste.Models.Login
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Paciente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://nutritotal.com.br/publico-geral/wp-content/uploads/2023/05/alimentacao-no-rendimento-no-trabalho.png');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .login-container {
+            max-width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: none;
+            color: #555;
+        }
+
+        .btn-primary {
+            width: 100%;
+            background-color: #FF5722;
+            border-color: #FF5722;
+        }
+
+            .btn-primary:hover {
+                background-color: #E64A19;
+                border-color: #E64A19;
+            }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h2>Login Paciente</h2>
+
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label for="Username">Username:</label>
+                    <input type="text" class="form-control" id="Username" name="Username" required />
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password:</label>
+                    <input type="password" class="form-control" id="Password" name="Password" required />
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+
+                @Html.ValidationSummary(true, "Erro no login", new { @class = "text-danger" })
+
+                <p class="text-center"><a href="@Url.Action("NutriLogin", "LoginNutri")">Área exclusiva para nutricionistas. Faça seu Login</a>.</p>
+            }
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+﻿@using Teste.Models
+@model Teste.Models.ListModel<Teste.Models.Paciente>
+
+
+@*@using (Html.BeginForm("Paciente", "Dados", FormMethod.Post))
+
+{
+    <html>
+    <head>
+        <title>Lista de Dados</title>
+
+    </head>
+    <body>
+        <h1>Lista de Dados</h1>
+
+
+        <label for="CPF">CPF:</label>
+        <input type="text" id="CPF" name="CPF" />
+        <button type="submit">Pesquisar</button>
+
+
+
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Comorbidade</th>
+                <th>Preferência Alimentar</th>
+                <th>Objetivo</th>
+                <th>Exercício Habitual</th>
+                <th>Alimentação Habitual</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Refeição</th>
+                <th>Peso da Refeição em "g"</th>
+            </tr>
+            @foreach (var paciente in Model.Items)
+            {
+
+                var caloriasPaciente = ViewBag.Caloria_v3 as List<Teste.Models.Caloria_v3>;
+                var caloriasDoPaciente = caloriasPaciente.Where(c => c.CPF == paciente.CPF);
+                foreach (var calorias in caloriasDoPaciente)
+
+
+                {
+                    <tr>
+                        <td>@paciente.NOME</td>
+                        <td>@paciente.COMORBIDADE</td>
+                        <td>@paciente.PREFERENCIA_ALIMENTAR</td>
+                        <td>@paciente.OBJETIVO</td>
+                        <td>@paciente.EXERCICIO_HABITUAL</td>
+                        <td>@paciente.ALIMENTACAO_HABITUAL</td>
+                        <td>@calorias.DATA_REFEICAO</td>
+                        <td>@calorias.HORARIO_REFEICAO</td>
+                        <td>@calorias.REFEICAO</td>
+                        <td>@calorias.PESO_REFEICAO</td>
+                    </tr>
+                }
+            }
+        </table>
+
+
+    </body>
+    </html>
+
+}*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Dados</title>
+    <style>
+        body {
+            background-color: #FF5722;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            color: #000000;
+        }
+
+        h1 {
+            color: #000000;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+
+        label {
+            color: #000000;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        button[type="submit"] {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Dados</h1>
+
+        <form method="post" action="/Dados/Paciente">
+            <label for="CPF">CPF:</label>
+            <input type="text" id="CPF" name="CPF" />
+            <button type="submit">Pesquisar</button>
+        </form>
+
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Comorbidade</th>
+                <th>Preferência Alimentar</th>
+                <th>Objetivo</th>
+                <th>Exercício Habitual</th>
+                <th>Alimentação Habitual</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Refeição</th>
+                <th>Peso da Refeição em "g"</th>
+            </tr>
+            @foreach (var paciente in Model.Items)
+            {
+                var caloriasPaciente = ViewBag.Caloria_v3 as List<Teste.Models.Caloria_v3>;
+                var caloriasDoPaciente = caloriasPaciente.Where(c => c.CPF == paciente.CPF);
+                foreach (var calorias in caloriasDoPaciente)
+                {
+                    <tr>
+                        <td>@paciente.NOME</td>
+                        <td>@paciente.COMORBIDADE</td>
+                        <td>@paciente.PREFERENCIA_ALIMENTAR</td>
+                        <td>@paciente.OBJETIVO</td>
+                        <td>@paciente.EXERCICIO_HABITUAL</td>
+                        <td>@paciente.ALIMENTACAO_HABITUAL</td>
+                        <td>@calorias.DATA_REFEICAO</td>
+                        <td>@calorias.HORARIO_REFEICAO</td>
+                        <td>@calorias.REFEICAO</td>
+                        <td>@calorias.PESO_REFEICAO</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</body>
+</html>

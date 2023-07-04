@@ -1,0 +1,104 @@
+﻿@using Teste.Models
+@model Teste.Models.Caloria_v3
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://www.shutterstock.com/image-photo/selection-nutritive-food-heart-cholesterol-260nw-1235545756.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: none;
+            color: #555;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #FF5722;
+            border-color: #FF5722;
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #E64A19;
+                border-color: #E64A19;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("Dieta", "Home", FormMethod.Post))
+        {
+            <h1>Cadastro de Calorias</h1>
+
+            <div class="form-group">
+                <label for="CPF">Informe seu CPF:</label>
+                <input type="text" class="form-control" id="CPF" name="CPF" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Data_Refeicao">Data da Refeição:</label>
+                <input type="text" class="form-control" id="Data_Refeicao" name="Data_Refeicao" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Horario_Refeicao">Horário da Refeição:</label>
+                <input type="text" class="form-control" id="Horario_Refeicao" name="Horario_Refeicao" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Refeicao">Refeição:</label>
+                <input type="text" class="form-control" id="Refeicao" name="Refeicao" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Peso_Refeicao">Peso da Refeição em gramas:</label>
+                <input type="text" class="form-control" id="Peso_Refeicao" name="Peso_Refeicao" required />
+            </div>
+
+            <input type="submit" value="Salvar" />
+        }
+    </div>
+</body>
+</html>

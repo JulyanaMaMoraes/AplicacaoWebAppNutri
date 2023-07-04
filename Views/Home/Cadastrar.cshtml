@@ -1,0 +1,141 @@
+﻿@using Teste.Models
+@model Teste.Models.Paciente
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://sportbuzz.uol.com.br/media/_versions/nutricionista_widexl.jpeg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: none;
+            color: #555;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #FF5722;
+            border-color: #FF5722;
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #E64A19;
+                border-color: #E64A19;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("Cadastrar", "Home", FormMethod.Post))
+        {
+            <h1>Cadastro</h1>
+
+            <div class="form-group">
+                <label for="Nome">Nome:</label>
+                <input type="text" class="form-control" id="Nome" name="Nome" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Cpf">CPF:</label>
+                <input type="text" class="form-control" id="Cpf" name="Cpf" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Email">Email:</label>
+                <input type="text" class="form-control" id="Email" name="Email" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Telefone">Telefone:</label>
+                <input type="text" class="form-control" id="Telefone" name="Telefone" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Idade">Idade:</label>
+                <input type="text" class="form-control" id="Idade" name="Idade" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Username">Username:</label>
+                <input type="text" class="form-control" id="Username" name="Username" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Password">Password:</label>
+                <input type="password" class="form-control" id="Password" name="Password" required />
+            </div>
+
+            <h1>Questionário</h1>
+
+            <div class="form-group">
+                <label for="Comorbidade">Possui algum tipo de comorbidade?</label>
+                <textarea class="form-control" id="Comorbidade" name="Comorbidade" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="Preferencia_Alimentar">Qual a sua preferência alimentar?</label>
+                <textarea class="form-control" id="Preferencia_Alimentar" name="Preferencia_Alimentar" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="Objetivo">Quais os seus objetivos com o acompanhamento?</label>
+                <textarea class="form-control" id="Objetivo" name="Objetivo" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="Exercicio_Habitual">Você pratica alguma atividade física? Caso sim, com qual frequência?</label>
+                <textarea class="form-control" id="Exercicio_Habitual" name="Exercicio_Habitual" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="Alimentacao_Habitual">Como está a sua alimentação atualmente? Qual seu peso atual em Kg? </label>
+                <textarea class="form-control" id="Alimentacao_Habitual" name="Alimentacao_Habitual" rows="4"></textarea>
+            </div>
+
+            <input type="submit" value="Enviar" />
+        }
+    </div>
+</body>
+</html>
